@@ -1,0 +1,249 @@
+body{
+    background-color: black;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#msgErrFilm, 
+#msgErrMember {
+    font-size: 14px;
+    font-weight: bold;
+    color: red;
+}
+.navbar-toggler {
+    font-size: 3rem;
+    font-weight: bold;
+    color: black !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    
+}
+
+.navbar-toggler:focus {
+    outline: 0 !important;
+    box-shadow: 0 0 0 var(--bs-navbar-toggler) !important;
+}
+
+#container {
+    padding: 20px;
+    padding-top:120px;
+}
+
+#img-icon{
+height: 80px !important;
+width: 180px !important;
+margin-right: 0;
+}
+
+#genre{
+    font-size:.95rem;
+    font-weight: 100;
+    color: rgb(197, 195, 195);
+}
+#displayCards{
+    flex-basis: content;
+    padding: 15px;
+    margin: 0 !important;
+    margin-left: 0;
+    width: fit-content;
+}
+
+.card.film-card {
+    color: rgb(197, 195, 195);
+    border-color:rgb(255, 187, 0);
+    background-color: black;
+    padding: 1rem;
+    width: 16rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+}
+
+#img-card {
+    height: 300px;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+
+
+.custom-toggler.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0, 100)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");  
+}
+
+#img-play{
+    height:25px;
+    padding-bottom: 3px;
+}
+
+#img-film{
+    width:auto;
+    height:350px;
+    }
+
+.film-info{
+    display:flex;
+    flex-direction: column;
+    position:relative;
+    color: white;
+    width:100%;
+    line-height: 1.5rem;
+    }
+
+footer{
+    display: block;
+    position: fixed;
+    bottom: 0px;
+    height: 30px;
+    padding-top: 5px; 
+    color: black; 
+    text-align: center;
+    align-items: center;
+    font-size: .8rem;
+}
+.permission-notification{
+    background-color: rgb(28, 27, 27) !important;
+    display: block;
+    margin-bottom:15px;
+    width:160px;
+    
+}
+
+#install-app {
+    background-color: rgb(159, 32, 7) !important;
+    right:60px;
+    position:fixed;
+     
+}
+
+#install-app,
+.permission-notification {
+    text-decoration: none;
+    display:flex;
+    margin-top:10px;
+    color: white;
+    border-radius: 3px;
+    border: none;
+    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    top:25px;
+    font
+}
+
+
+#install-app :hover{
+    background-color: rgb(208, 102, 81);
+}
+/*----------start media queries----------*/
+/*screens*/
+
+@media (min-width: 993px) {
+    #install-app {
+        position:fixed;
+        right:15px;
+        top:25px;
+    }
+    .permission-notification {
+        position:fixed;
+        right:120px;
+        top:25px;
+    }
+
+}
+
+@media (min-width: 768px) {
+    #custom-dropdown-menu {
+    background-color: black !important;
+    color: black !important;
+    left:400px;
+    }
+
+    .custom-dropdown:hover{
+        background: rgb(24, 24, 24) !important;
+        color:rgb(255, 187, 0) !important;
+    }
+    .custom-dropdown {
+        background-color: black !important;
+        color: white !important; 
+        }  
+
+    .film{
+        width: 60%;
+        flex-direction: column;
+        position:relative;
+        top:-370px;
+        left:290px;
+    }
+    #displayFilm,
+    .displayFilm{
+        margin:15px;
+    } 
+
+    #img-film{
+    width:auto;
+    height:400px;
+    }
+
+    footer{ 
+        height: 40px !important; 
+        font-size: 1rem !important;
+        padding-top: 10px;
+    }
+}
+
+/*galaxy z-fold*/
+@media (max-width: 281px) {
+    #install-app {
+        position:relative;
+        margin-left: 15px; 
+        margin-top: 10px;
+        margin-bottom: 10px;
+        left:0;
+        top:0;
+        font-size: 1rem;
+        padding: 0;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .card.film-card {
+        width: 14rem;  
+    }
+
+    #img-card {
+        height: 300px;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    #img-film{
+        width:190px!important;
+        height: auto !important;
+    }
+
+    .film{
+        font-size:80%;
+    }
+
+    footer{
+        padding: 7px;
+        font-size: .7rem !important;
+    }
+}
+
+#displayFilm,
+.displayFilm{
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: column;
+    justify-items: center;
+    border-width: 3px;
+    border-style:outset;
+    border-radius: 20px;
+    padding:10px;  
+    position: relative;  
+}
+
+/*-------end media queries---------*/

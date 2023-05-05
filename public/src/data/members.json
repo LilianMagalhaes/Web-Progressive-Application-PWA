@@ -1,0 +1,17 @@
+[
+    {
+    "userName":"hannah.gagnon",
+    "nameFirst":"Hannah",
+    "nameLast":"Gagnon",
+    "email":"hannah.gagnon@example.com",
+    "password":"01234"
+},
+
+    {
+    "userName":"sophie.liu",
+    "nameFirst":"Sophie",
+    "nameLast":"Liu",
+    "email":"sophie.liu@example.com",
+    "password":"56789"
+    }
+]

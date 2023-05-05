@@ -1,0 +1,27 @@
+{
+  "name": "pwa-films",
+  "version": "1.0.0",
+  "description": "App pour voir films (streaming)",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -c-1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
+    "fps": "^0.0.3",
+    "http-server": "^14.1.1",
+    "lodash": "^4.17.21",
+    "node": "^19.6.0",
+    "web-push": "^3.5.0"
+  },
+  "keywords": [
+    "pwa",
+    "films",
+    "streaming",
+    "location",
+    "visionner"
+  ]
+}

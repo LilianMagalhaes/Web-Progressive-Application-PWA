@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f3c521"/>
+    <title>Films Streaming</title>
+    <link rel="stylesheet" href="src/utilitaires/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+</head>
+<body onload="getFilmsData()">
+    <!-- nav bar begins -->
+    <nav class="navbar p-0 pe-2 pe-sm-3 navbar-expand-lg bg-warning fixed-top ">
+        <div class="container-fluid pe-0">
+            <a class="navbar-brand me-0" id="home" href="#"><img class= "category-filter" id="img-icon" src="src/images/icon.png"alt=""></a>
+            <button class="navbar-toggler border-0" id="nav-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="custom-toggler navbar-toggler border-0">&#9776;</span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ps-lg-1 mt-lg-3 fs-lg-5 text">
+                    <li class="nav-item">
+                        <a class="nav-link active category-filter" href="#" id="accueil">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active add-film" href="#" data-bs-toggle="modal" data-bs-target="#modalAddFilm">Ajouter un film</a>
+                    </li>
+                    
+                        <a class="nav-link active custom dropdown-toggle border-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Catégories
+                        </a>
+                        <ul class="dropdown-menu bg-warning border-0" id="custom-dropdown-menu">
+                            <li><a class="dropdown-item category-filter custom-dropdown" href="#" id="allFilms">Tous les films</a></li>
+                            <li><a class="dropdown-item category-filter custom-dropdown" href="#" id="action">Action</a></li>
+                            <li><a class="dropdown-item category-filter custom-dropdown" href="#" id="adventure">Adventure</a></li>
+                            <li><a class="dropdown-item category-filter custom-dropdown" href="#" id="biography">Biography</a></li>
+                            <li><a class="dropdown-item category-filter custom-dropdown" href="#" id="comedy">Comedy</a></li>
+                            <li><a class="dropdown-item category-filter custom-dropdown" href="#" id="crime">Crime</a></li>
+                            <li><a class="dropdown-item category-filter custom-dropdown" href="#" id="drama">Drama</a></li>
+                            <li><a class="dropdown-item category-filter custom-dropdown" href="#" id="fantasy">Fantasy</a></li>
+                            <li><a class="dropdown-item category-filter custom-dropdown" href="#" id="history">History</a></li>
+                            <li><a class="dropdown-item category-filter custom-dropdown" href="#" id="horror">Horror</a></li>
+                            <li><a class="dropdown-item category-filter custom-dropdown" href="#" id="sci-fi">Sci-Fi</a></li>
+                            <li><a class="dropdown-item category-filter custom-dropdown" href="#" id="thriller">Thriller</a></li>   
+                        </ul>
+                    </ul>
+                    <ul class="navbar-nav mt-lg-3 fs-lg-5 text">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-bs-toggle="modal" data-bs-target="#modalAddMember">Devenir membre</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="#" data-bs-toggle="modal" data-bs-target="#modalConnexion">Connexion</a>
+                            </li>
+                            <li class="nav-item ">
+                            <a  class="permission-notification mdl-button  ms-1 mdl-js-button mdl-button-raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Activer notifications</a>
+                        </li>
+                        </ul>
+                </ul>
+            </div>
+            <a id="install-app"class="install">Install app</a>
+        </div>
+    
+       
+    </nav>
+<!-- nav bar ends -->
+    <section class="myContainer" id="container">
+        <article id="displayCards" class="row justify-content-center justify-content-lg-start ">DISPLAY CARDS</article>
+        <article id="displayFilm" class="border-warning displayFilm">DISPLAY FILM</article>
+    </section>
+    
+   <!-- Modal register new member begins -->
+   <div class="modal fade" id="modalAddMember" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-warning">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Enregistrer un membre:</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <span id="msgErrMember "></span>
+                <form class="row g-3" action="" method="POST" onSubmit="return validerFormEnreg();" id="formAddMember">
+                    <div class="col-md-12">
+                        <label for="nameLast" class="form-label">Nom</label>
+                        <input type="text" class="form-control is-valid" id="nameLast" name="nameLast" required>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="nameFirst" class="form-label">Prénom</label>
+                        <input type="text" placeholder="" class="form-control is-valid" id="nameFirst" name="nameFirst" required>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="email" class="form-label">Courriel</label>
+                        <input type="text" placeholder="" class="form-control is-valid" id="email" name="email" required>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="userName" class="form-label">Nom d'utilisateur</label>
+                        <input type="text" placeholder="" class="form-control is-valid" id="userName" name="userName" required>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="pass" class="form-label">Mot de passe</label>
+                        <input type="password" placeholder="" class="form-control is-valid" id="pass" name="pass" required>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="cpass" class="form-label">Confirmer mot de passe</label>
+                        <input type="password" placeholder="" class="form-control is-valid" id="cpass" name="cpass" required>
+                    </div>
+                    <br/>
+                    <span id="msg-addMember" style="color:red; font: size 16;"></span>
+                    <div class="col-6">
+                        <button class="btn btn-warning" type="submit" id="btn-submit-member" data-bs-dismiss="modal">Enregistrer</button>
+                    </div>
+                    <div class="col-6">
+                        <button class="btn btn-secondary" type="reset">Vider</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+ <!-- Modal register new member ends-->
+
+<!-- Modal add new film begins -->
+<div class="modal fade" id="modalAddFilm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header bg-warning">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Enregistrer un nouveau film:</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <span id="msgErrFilm"></span>
+            <form class="row g-3" id="formAddFilm">
+                <div class="col-md-12">
+                    <label for="AddTitle" class="form-label">Titre:</label>
+                    <input type="text" placeholder="" value="" class="form-control is-valid" id="addTitle" name="AddTitle" required>
+                </div>
+                <div class="col-md-12">
+                    <label for="AddYear" class="form-label">Annee:</label>
+                    <input type="text" placeholder="" value="" class="form-control is-valid" id="addYear" name="AddYear" required>
+                </div>
+                <div class="col-md-12">
+                    <label for="AddDirector" class="form-label">Realisateur:</label>
+                    <input type="text" placeholder="" value="" class="form-control is-valid" id="addDirector" name="AddDirector" required>
+                </div>
+                <div class="col-md-12">
+                    <label for="addRuntime" class="form-label">Duree:</label>
+                    <input type="text" placeholder="" value="" class="form-control is-valid" id="addRuntime" name="addRuntime">
+                </div>
+                <div class="col-md-12">
+                    <label for="addCategory" class="form-label">Genre</label>
+                    <input type="text" placeholder="" value="" class="form-control is-valid" id="addCategory" name="addCategory" required>
+                </div>
+                </div>
+                <br />
+                <span id="msg-addFilm" style="color:red; font: size 16;"></span>
+                <div class="col-6">
+                    <button class="btn btn-warning" type="submit" id="btn-submit-film" data-bs-dismiss="modal">Enregistrer</button>
+                </div>
+                <div class="col-7">
+                    <button class="btn btn-secondary" type="reset">Vider</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Modal add new film  ends-->
+
+ <!-- Modal connexion begins -->
+<div class="modal fade" id="modalConnexion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-warning">
+                <h1 class="modal-title fs-5" id="conectionModalLabel">Connexion:</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <span id="msgErrEnreg"></span>
+                <form class="row g-3" method="POST" id="formConection">
+                    <div class="col-md-12">
+                        <label for="userName" class="form-label">Nom d'utilisateur</label>
+                        <input type="text" placeholder="" class="form-control is-valid" id="conection-userName" name="userName" required>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="pass" class="form-label">Mot de passe</label>
+                        <input type="password" placeholder="" class="form-control is-valid" id="conection-pass" name="pass" required>
+                    </div>
+                    <br />
+                    <span id="msg-conection" style="color:red; font: size 16;"></span>
+                    <div class="col-6">
+                        <button class="btn btn-warning" type="submit" id="btn-connecter" data-bs-dismiss="modal">Connecter</button>
+                    </div>
+                    <div class="col-6">
+                        <button class="btn btn-secondary" type="reset">Vider</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+ <!-- Modal connexion ends-->
+ 
+     
+     <footer class="container-fluid bg-warning">Copright &#169; Lilian Magalhaes - Janvier 2022</footer>
+
+     <script src="src/utilitaires/jquery-3.6.3.min.js"></script>
+     <!-- bundle for  menu dropdown -->
+     <script src="src/utilitaires/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
+     <script src="src/js/sw-register.js"></script>
+     <script src="src/js/lib/idb.js"></script>
+     <script src="src/js/films-service.js"></script>
+     <script src="src/js/lib/idb-operations.js"></script>
+     <script src="src/js/forms.js"></script>
+     <script src="src/js/films-script.js" media="all"></script>
+     <!--<script src="src/js/install-app.js"></script>-->
+</body>
+</html>
